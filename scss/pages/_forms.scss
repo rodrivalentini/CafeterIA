@@ -1,0 +1,107 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// FORMULARIOS — Reservas y contacto
+// ============================================
+
+.form {
+  &__group {
+    margin-bottom: $spacing-md;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $color-text-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    background-color: $color-bg-primary;
+    border: 1px solid rgba($color-text-secondary, 0.3);
+    border-radius: $border-radius-md;
+    color: $color-text-primary;
+    font-size: 0.95rem;
+    transition: border-color $transition-base;
+
+    &::placeholder {
+      color: rgba($color-text-secondary, 0.5);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+    }
+
+    &.error {
+      border-color: #e74c3c;
+    }
+
+    &:valid:not(:placeholder-shown) {
+      border-color: rgba($color-accent, 0.5);
+    }
+  }
+
+  &__textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  &__error {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: $spacing-xs;
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.form-container {
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-md;
+  padding: $spacing-xl;
+  border-top: 3px solid $color-accent;
+}
+
+// Historia (nosotros)
+.story-content {
+  max-width: 800px;
+  margin: 0 auto;
+
+  p {
+    margin-bottom: $spacing-md;
+    line-height: 1.8;
+  }
+}
+
+.about-image {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  margin: $spacing-xl auto;
+  max-width: 800px;
+  border: 3px solid rgba($color-accent, 0.3);
+
+  img {
+    width: 100%;
+    display: block;
+  }
+}

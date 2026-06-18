@@ -1,0 +1,141 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// NAVBAR — Navegación sticky con burger menu
+// ============================================
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: $navbar-height;
+  background-color: $color-bg-secondary;
+  border-bottom: 2px solid rgba($color-accent, 0.4);
+  transition: background-color $transition-base, box-shadow $transition-base;
+
+  &.scrolled {
+    background-color: rgba($color-bg-secondary, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  &__container {
+    @include container;
+    @include flex-between;
+    height: 100%;
+  }
+
+  &__logo {
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-text-primary;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-accent;
+    }
+
+    .logo-ia {
+      color: $color-accent;
+    }
+  }
+
+  &__menu {
+    display: none;
+    gap: $spacing-md;
+
+    @include respond-to(lg) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: $color-text-secondary;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    transition: color $transition-base, background-color $transition-base;
+
+    &:hover,
+    &.active {
+      color: $color-accent;
+    }
+
+    &.active {
+      font-weight: 600;
+    }
+  }
+
+  // Burger menu
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
+    z-index: 1001;
+
+    @include respond-to(lg) {
+      display: none;
+    }
+
+    span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $color-text-primary;
+      border-radius: 2px;
+      transition: transform $transition-base, opacity $transition-base;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+
+  // Mobile menu overlay
+  &__mobile-menu {
+    position: fixed;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color-bg-primary, 0.98);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-lg;
+    transform: translateX(100%);
+    transition: transform $transition-base;
+    z-index: 999;
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    @include respond-to(lg) {
+      display: none;
+    }
+
+    .navbar__link {
+      font-size: 1.25rem;
+      padding: $spacing-sm $spacing-md;
+    }
+  }
+}

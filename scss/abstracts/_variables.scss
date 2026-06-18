@@ -1,0 +1,42 @@
+// ============================================
+// VARIABLES — Paleta, tipografías y espaciados
+// ============================================
+
+// Colores principales
+$color-bg-primary: #1E2D24;
+$color-bg-secondary: #334139;
+$color-accent: #F18F01;
+$color-text-primary: #F5F0EB;
+$color-text-secondary: #A8B5A0;
+
+// Tipografías
+$font-heading: 'Playfair Display', Georgia, serif;
+$font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+// Espaciados
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-2xl: 4rem;
+$spacing-3xl: 6rem;
+
+// Breakpoints (mobile first)
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// Transiciones
+$transition-base: 0.3s ease;
+
+// Bordes y sombras
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$shadow-card: 0 4px 20px rgba(0, 0, 0, 0.25);
+$shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+// Navbar
+$navbar-height: 70px;

@@ -1,0 +1,97 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// HEADER — Hero y cabeceras de página
+// ============================================
+
+.hero {
+  position: relative;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg-primary;
+  padding-top: $navbar-height;
+  overflow: hidden;
+
+  @include respond-to(lg) {
+    min-height: 100vh;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://picsum.photos/seed/cafeteria-hero/1920/1080');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba($color-bg-primary, 0.92) 0%,
+        rgba($color-bg-primary, 0.75) 50%,
+        rgba($color-bg-secondary, 0.85) 100%
+      );
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    @include container;
+    text-align: center;
+    padding: $spacing-2xl $spacing-md;
+
+    @include respond-to(lg) {
+      padding: $spacing-3xl $spacing-md;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-md;
+    @include fade-in;
+    animation-delay: 0.2s;
+  }
+
+  &__subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: $color-text-secondary;
+    max-width: 550px;
+    margin: 0 auto $spacing-xl;
+    @include fade-in;
+    animation-delay: 0.4s;
+  }
+
+  &__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    justify-content: center;
+    @include fade-in;
+    animation-delay: 0.6s;
+  }
+}
+
+// Page header (páginas internas)
+.page-header {
+  background-color: $color-bg-secondary;
+  padding-top: calc($navbar-height + $spacing-2xl);
+  padding-bottom: $spacing-2xl;
+  text-align: center;
+  border-bottom: 2px solid rgba($color-accent, 0.3);
+
+  &__title {
+    margin-bottom: $spacing-sm;
+  }
+
+  &__subtitle {
+    color: $color-text-secondary;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}

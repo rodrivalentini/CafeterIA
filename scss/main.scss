@@ -1,0 +1,26 @@
+// ============================================
+// MAIN — Punto de entrada SASS (7-1)
+// Importa todos los partials con @use
+// ============================================
+
+// Abstracts
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+// Base
+@use 'base/reset';
+@use 'base/typography';
+
+// Components
+@use 'components/navbar';
+@use 'components/buttons';
+@use 'components/cards';
+
+// Layout
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/sections';
+
+// Pages
+@use 'pages/home';
+@use 'pages/forms';

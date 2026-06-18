@@ -1,0 +1,92 @@
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// BOTONES — Estilos de CTAs y acciones
+// ============================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-lg;
+  font-family: $font-body;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: $border-radius-md;
+  transition: all $transition-base;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &--primary {
+    background-color: $color-accent;
+    color: $color-bg-primary;
+    border-color: $color-accent;
+
+    &:hover {
+      background-color: color.adjust($color-accent, $lightness: -8%);
+      border-color: color.adjust($color-accent, $lightness: -8%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($color-accent, 0.4);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $color-text-primary;
+    border-color: $color-text-primary;
+
+    &:hover {
+      background-color: $color-text-primary;
+      color: $color-bg-primary;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--outline-accent {
+    background-color: transparent;
+    color: $color-accent;
+    border-color: $color-accent;
+
+    &:hover {
+      background-color: $color-accent;
+      color: $color-bg-primary;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--sm {
+    padding: $spacing-xs $spacing-md;
+    font-size: 0.85rem;
+  }
+
+  &--lg {
+    padding: $spacing-md $spacing-xl;
+    font-size: 1.05rem;
+  }
+}
+
+// Filtros tipo botón
+.filter-btn {
+  padding: $spacing-xs $spacing-md;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: $color-text-secondary;
+  background-color: transparent;
+  border: 1px solid rgba($color-text-secondary, 0.3);
+  border-radius: $border-radius-sm;
+  transition: all $transition-base;
+
+  &:hover {
+    color: $color-accent;
+    border-color: $color-accent;
+  }
+
+  &.active {
+    color: $color-bg-primary;
+    background-color: $color-accent;
+    border-color: $color-accent;
+  }
+}

@@ -1,0 +1,336 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ============================================
+// SECTIONS — Layout de secciones generales
+// ============================================
+
+main {
+  padding-top: 0;
+}
+
+.section {
+  @include section-padding;
+
+  &--alt {
+    background-color: $color-bg-secondary;
+  }
+
+  &__container {
+    @include container;
+  }
+}
+
+// Grid de cards (3 columnas)
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Grid de menú
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Grid de galería
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Filtros
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  justify-content: center;
+  margin-bottom: $spacing-xl;
+}
+
+// Dos columnas (formularios)
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1.2fr 1fr;
+    gap: $spacing-2xl;
+  }
+}
+
+// Timeline
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: $spacing-xl;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: $color-accent;
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: $spacing-xl;
+    padding-left: $spacing-lg;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * #{$spacing-xl} + 4px);
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: $color-accent;
+      border: 2px solid $color-bg-primary;
+    }
+  }
+
+  &__year {
+    font-family: $font-heading;
+    color: $color-accent;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    color: $color-text-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__text {
+    color: $color-text-secondary;
+    font-size: 0.95rem;
+  }
+}
+
+// Valores
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.value-card {
+  text-align: center;
+  padding: $spacing-xl $spacing-lg;
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-md;
+  border-bottom: 3px solid $color-accent;
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 1.25rem;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__text {
+    color: $color-text-secondary;
+    font-size: 0.95rem;
+  }
+}
+
+// Equipo
+.team-photo {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  margin-bottom: $spacing-xl;
+  border: 3px solid rgba($color-accent, 0.3);
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// Info box (reservas/contacto)
+.info-box {
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-md;
+  padding: $spacing-xl;
+  border-left: 4px solid $color-accent;
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 1.25rem;
+    margin-bottom: $spacing-md;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    color: $color-text-secondary;
+    font-size: 0.95rem;
+
+    svg {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      fill: $color-accent;
+      margin-top: 2px;
+    }
+
+    a {
+      color: $color-accent;
+      transition: color $transition-base;
+
+      &:hover {
+        color: #f5a623;
+      }
+    }
+  }
+}
+
+// Mapa
+.map-container {
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  border: 2px solid rgba($color-accent, 0.3);
+  margin-top: $spacing-lg;
+
+  iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    display: block;
+
+    @include respond-to(md) {
+      height: 400px;
+    }
+  }
+}
+
+// Mensaje de confirmación
+.confirmation-message {
+  display: none;
+  background-color: rgba($color-accent, 0.15);
+  border: 2px solid $color-accent;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  text-align: center;
+  margin-top: $spacing-lg;
+
+  &.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    color: $color-accent;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__text {
+    color: $color-text-secondary;
+  }
+}
+
+// Lightbox
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba($color-bg-primary, 0.95);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md;
+
+  &.open {
+    display: flex;
+  }
+
+  &__content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+  &__img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: $border-radius-md;
+    object-fit: contain;
+  }
+
+  &__caption {
+    text-align: center;
+    margin-top: $spacing-md;
+    color: $color-text-secondary;
+  }
+
+  &__close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: $color-text-primary;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}

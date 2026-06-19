@@ -180,6 +180,23 @@
     </section>
   </main>
 
+  <!-- Ruleta -->
+   <section class="ruleta-section" id="ruleta">
+  <div class="container">
+    <h2 class="section-title">Ruleta de descuentos</h2>
+    <p class="section-subtitle">Girá y ganás un descuento en tu próximo café</p>
+    <div class="ruleta-wrapper">
+      <div class="ruleta-canvas-wrap">
+        <div class="ruleta-puntero"></div>
+        <canvas id="ruletaCanvas" width="320" height="320"></canvas>
+      </div>
+      <button class="btn-girar" id="girarBtn" onclick="girarRuleta()">Girar ruleta</button>
+      <div class="ruleta-resultado" id="resultado"></div>
+      <p class="ruleta-aviso">Un intento por visita. Mostrá el código al pedir tu café.</p>
+    </div>
+  </div>
+</section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer__container">
@@ -236,5 +253,6 @@
 
   <script src="js/main.js"></script>
   <script src="js/ai-barista.js"></script>
+  <script src="js/ruleta.js"></script>
 </body>
 </html>
